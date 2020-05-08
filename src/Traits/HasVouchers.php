@@ -35,7 +35,7 @@ trait HasVouchers
      */
     public function createVoucher(array $data = [], $expires_at = null)
     {
-        $vouchers = Vouchers::create($this, 1, $data, $expires_at);
+        $vouchers = Vouchers::create($this, $data, $expires_at);
 
         return $vouchers[0];
     }
