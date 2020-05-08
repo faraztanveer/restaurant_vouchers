@@ -1,17 +1,17 @@
 {
-    "name": "beyondcode/laravel-vouchers",
+    "name": "faraztanveer/restaurant_vouchers",
     "description": "Allow users to redeem vouchers that are bound to models..",
     "keywords": [
         "beyondcode",
         "laravel-vouchers"
     ],
-    "homepage": "https://github.com/beyondcode/laravel-vouchers",
+    "homepage": "https://github.com/faraztanveer/restaurant_vouchers",
     "license": "MIT",
     "authors": [
         {
-            "name": "Marcel Pociot",
-            "email": "marcel@beyondco.de",
-            "homepage": "https://beyondcode.de",
+            "name": "Faraz tanveer",
+            "email": "faraztanveer.dev@gmail.com",
+            "homepage": "https://prospiral.co",
             "role": "Developer"
         }
     ],
@@ -39,7 +39,6 @@
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
     },
     "config": {
         "sort-packages": true
