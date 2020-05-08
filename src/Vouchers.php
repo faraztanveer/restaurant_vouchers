@@ -37,11 +37,12 @@ class Vouchers
 
     /**
      * @param Model $model
+     * @param string $name
      * @param array $data
-     * @param null $expires_at
+     * @param $expires_at
      * @return array
      */
-    public function create(Model $model, array $data = [], $expires_at = null)
+    public function create(Model $model, string $name = null, array $data, $expires_at)
     {
         $vouchers = [];
 
@@ -49,7 +50,7 @@ class Vouchers
         $vouchers[] = Voucher::create([
             'model_id' => $model->getKey(),
             'model_type' => $model->getMorphClass(),
-            'code' => 'abc',
+            'code' => $name,
             'data' => $data,
             'expires_at' => $expires_at,
         ]);
