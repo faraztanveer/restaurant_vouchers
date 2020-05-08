@@ -13,10 +13,10 @@ trait CanRedeemVouchers
 {
     /**
      * @param string $code
-     * @throws VoucherExpired
+     * @return mixed
      * @throws VoucherIsInvalid
      * @throws VoucherAlreadyRedeemed
-     * @return mixed
+     * @throws VoucherExpired
      */
     public function redeemCode(string $code)
     {
@@ -40,10 +40,10 @@ trait CanRedeemVouchers
 
     /**
      * @param Voucher $voucher
-     * @throws VoucherExpired
+     * @return mixed
      * @throws VoucherIsInvalid
      * @throws VoucherAlreadyRedeemed
-     * @return mixed
+     * @throws VoucherExpired
      */
     public function redeemVoucher(Voucher $voucher)
     {
@@ -55,6 +55,6 @@ trait CanRedeemVouchers
      */
     public function vouchers()
     {
-        return $this->belongsToMany(Voucher::class)->withPivot('redeemed_at');
+        return $this->belongsToMany(Voucher::class, config('vouchers.relation_table'), 'user_id', 'voucher_id')->withPivot('redeemed_at');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace BeyondCode\Vouchers\Models;
 
+use App\Customer;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
@@ -42,7 +43,7 @@ class Voucher extends Model
      */
     public function users()
     {
-        return $this->belongsToMany(config('vouchers.user_model'), config('vouchers.relation_table'))->withPivot('redeemed_at');
+        return $this->belongsToMany(Customer::class, config('vouchers.relation_table'), 'voucher_id', 'user_id')->withPivot('redeemed_at');
     }
 
     /**
