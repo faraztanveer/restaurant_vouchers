@@ -37,33 +37,32 @@ class Vouchers
 
     /**
      * @param Model $model
-     * @param int $amount
      * @param array $data
      * @param null $expires_at
      * @return array
      */
-    public function create(Model $model, int $amount = 1, array $data = [], $expires_at = null)
+    public function create(Model $model, array $data = [], $expires_at = null)
     {
         $vouchers = [];
 
-        foreach ($this->generate($amount) as $voucherCode) {
-            $vouchers[] = Voucher::create([
-                'model_id' => $model->getKey(),
-                'model_type' => $model->getMorphClass(),
-                'code' => $voucherCode,
-                'data' => $data,
-                'expires_at' => $expires_at,
-            ]);
-        }
+
+        $vouchers[] = Voucher::create([
+            'model_id' => $model->getKey(),
+            'model_type' => $model->getMorphClass(),
+            'code' => 'abc',
+            'data' => $data,
+            'expires_at' => $expires_at,
+        ]);
+
 
         return $vouchers;
     }
 
     /**
      * @param string $code
-     * @throws VoucherIsInvalid
-     * @throws VoucherExpired
      * @return Voucher
+     * @throws VoucherExpired
+     * @throws VoucherIsInvalid
      */
     public function check(string $code)
     {
