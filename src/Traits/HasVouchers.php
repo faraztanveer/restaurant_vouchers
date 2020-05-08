@@ -30,6 +30,7 @@ trait HasVouchers
 
     /**
      * @param array $data
+     * @param null $name
      * @param null $expires_at
      * @return Voucher
      */
